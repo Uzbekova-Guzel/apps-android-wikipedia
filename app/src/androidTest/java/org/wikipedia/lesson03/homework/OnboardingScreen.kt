@@ -38,7 +38,6 @@ val addLanguageButton = listOf(
     R.id.addLanguageButton,
     R.string.onboarding_multilingual_add_language_text
 )
-
 val pageIndicator = listOf(
     TabLayout::class.java,
     R.id.view_onboarding_page_indicator
