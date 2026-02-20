@@ -2,9 +2,9 @@ package org.wikipedia.lesson06.homework
 
 import androidx.appcompat.widget.AppCompatImageView
 import com.kaspersky.kaspresso.screens.KScreen
+import io.github.kakaocup.kakao.check.KCheckBox
 import io.github.kakaocup.kakao.image.KImageView
 import io.github.kakaocup.kakao.progress.KSeekBar
-import io.github.kakaocup.kakao.switch.KSwitch
 import io.github.kakaocup.kakao.text.KButton
 import io.github.kakaocup.kakao.text.KTextView
 import org.wikipedia.R
@@ -17,12 +17,14 @@ object ThemeBottomSheet : KScreen<ThemeBottomSheet>() {
         withId(R.id.textSettingsCategory)
     }
     val sizePercentText = KTextView {
-        containsText("%")
+        withId(R.id.text_size_percent)
     }
     val decreaseSizeButton = KTextView {
+        withId(R.id.buttonDecreaseTextSize)
         withContentDescription(R.string.text_size_decrease)
     }
     val increaseSizeButton = KTextView {
+        withId(R.id.buttonIncreaseTextSize)
         withContentDescription("Increase text size")
     }
     val textSizeSeekBar = KSeekBar {
@@ -32,6 +34,7 @@ object ThemeBottomSheet : KScreen<ThemeBottomSheet>() {
         withId(R.id.button_font_family_serif)
     }
     val sansSerifButton = KButton {
+        withId(R.id.button_font_family_sans_serif)
         withTag("sans-serif")
     }
     val glassImage = KImageView {
@@ -40,7 +43,8 @@ object ThemeBottomSheet : KScreen<ThemeBottomSheet>() {
         }
         isInstanceOf(AppCompatImageView::class.java)
     }
-    val readingFocusModeSwitch = KSwitch {
+    val readingFocusModeSwitch = KCheckBox {
+        withId(R.id.theme_chooser_reading_focus_mode_switch)
         containsText("focus mode")
     }
     val readingFocusModeDescription = KTextView {
@@ -54,6 +58,7 @@ object ThemeBottomSheet : KScreen<ThemeBottomSheet>() {
         withBackgroundColor("white")
     }
     val sepiaThemeButton = KButton {
+        withId(R.id.button_theme_sepia)
         withBackgroundColor(R.color.beige300)
     }
     val darkThemeButton = KButton {
@@ -64,10 +69,10 @@ object ThemeBottomSheet : KScreen<ThemeBottomSheet>() {
         withId(R.id.button_theme_black)
         withBackgroundColor("black")
     }
-    val systemThemeSwitch = KSwitch {
+    val systemThemeSwitch = KCheckBox {
         withId(R.id.theme_chooser_match_system_theme_switch)
     }
-    val imageDimmingSwitch = KSwitch {
+    val imageDimmingSwitch = KCheckBox {
         withId(R.string.theme_chooser_dialog_image_dimming_switch_label)
     }
 }
