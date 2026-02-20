@@ -1,9 +1,7 @@
 package org.wikipedia.lesson06.homework
 
 import androidx.appcompat.widget.AppCompatImageView
-import androidx.test.espresso.matcher.ViewMatchers.withId
 import com.kaspersky.kaspresso.screens.KScreen
-import io.github.kakaocup.kakao.common.views.KView
 import io.github.kakaocup.kakao.image.KImageView
 import io.github.kakaocup.kakao.progress.KSeekBar
 import io.github.kakaocup.kakao.switch.KSwitch
