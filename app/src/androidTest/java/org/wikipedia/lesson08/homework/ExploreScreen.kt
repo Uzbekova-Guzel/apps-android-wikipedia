@@ -1,12 +1,8 @@
-package org.wikipedia.lesson08
+package org.wikipedia.lesson08.homework
 
-import android.view.View
-import androidx.appcompat.widget.AppCompatImageView
 import com.kaspersky.kaspresso.screens.KScreen
 import io.github.kakaocup.kakao.image.KImageView
-import io.github.kakaocup.kakao.recycler.KRecyclerItem
 import io.github.kakaocup.kakao.recycler.KRecyclerView
-import org.hamcrest.Matcher
 import org.wikipedia.R
 import org.wikipedia.feed.view.FeedView
 
@@ -24,14 +20,10 @@ object ExploreScreen : KScreen<ExploreScreen>() {
         },
         itemTypeBuilder = {
             itemType(::SearchItem)
+            itemType(::CustomizeItem)
+            itemType(::DayItem)
+            itemType(::TopReadItem)
+            itemType(::InTheNewsItem)
         }
     )
-}
-
-class SearchItem(matcher: Matcher<View>) : KRecyclerItem<SearchItem>(matcher) {
-    val searchImage = KImageView(matcher) {
-        isInstanceOf(AppCompatImageView::class.java)
-        isDisplayed()
-    }
-
 }
