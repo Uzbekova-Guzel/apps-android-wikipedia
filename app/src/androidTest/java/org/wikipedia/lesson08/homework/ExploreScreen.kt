@@ -29,8 +29,4 @@ object ExploreScreen : KScreen<ExploreScreen>() {
             itemType(::FeaturedArticleItem)
         }
     )
-
-    val featuredArticleCard = KView {
-        isInstanceOf(FeaturedArticleCardView::class.java)
-    }
 }

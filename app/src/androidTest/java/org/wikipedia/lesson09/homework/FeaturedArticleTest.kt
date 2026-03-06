@@ -1,9 +1,7 @@
 package org.wikipedia.lesson09.homework
 
-import androidx.test.espresso.action.GeneralLocation
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import com.kaspersky.kaspresso.testcases.api.testcase.TestCase
-import org.hamcrest.core.IsInstanceOf
 import org.junit.Rule
 import org.junit.Test
 import org.wikipedia.feed.announcement.AnnouncementCardView
@@ -24,21 +22,19 @@ class FeaturedArticleTest : TestCase() {
     @Test
     fun hideFeaturedArticleTest() {
         run("Проверка функционала скрытия блока Featured Article") {
-            OnboardingScreen {
-                step("Нажимает Skip на экране онбординга") {
-                    skipButton.click()
-                }
+            step("Нажимает Skip на экране онбординга") {
+                OnboardingScreen.skipButton.click()
             }
             ExploreScreen.items {
                 childWith<FeaturedArticleItem> {
-                    IsInstanceOf(FeaturedArticleCardView::class.java)
+                    isInstanceOf(FeaturedArticleCardView::class.java)
                 } perform {
                     step("Проверяет отображение блока Featured Article экрана Explore") {
-                        menuHeader.hasText("Featured article")
+                        isDisplayed()
                     }
                 }
                 childWith<CustomizeItem> {
-                    IsInstanceOf(AnnouncementCardView::class.java)
+                    isInstanceOf(AnnouncementCardView::class.java)
                 } perform {
                     step("Нажимает на кнопку Customize в блоке Customize your Explore feed экрана Explore") {
                         customizeButton.click()
@@ -46,22 +42,28 @@ class FeaturedArticleTest : TestCase() {
                 }
             }
             CustomizeScreen {
-                items {
-                    childAt<CustomizeRecycler>(1) {
-                        step("Отключает тогл Featured Article") {
-                            checkbox.click()
-                            checkbox.isNotChecked()
-                        }
+                items.childWith<CustomizeRecycler> {
+                    withDescendant { withText("Featured article") }
+                } perform {
+                    step("Отключает тогл Featured Article") {
+                        checkbox.click()
+                        checkbox.isNotChecked()
                     }
                 }
                 step("Нажимает стрелку назад в верхнем тулбаре") {
-                    toolbar.click(GeneralLocation.CENTER_LEFT)
+                    backButton.click()
                 }
             }
             ExploreScreen {
-                step("Проверяет, что блок Featured Article не отображается на экране Explore") {
-                    logo.isDisplayed()
-                    featuredArticleCard.doesNotExist()
+                logo.isDisplayed()
+                items {
+                    childWith<FeaturedArticleItem> {
+                        isInstanceOf(FeaturedArticleCardView::class.java)
+                    } perform {
+                        step("Проверяет, что блок Featured Article не отображается на экране Explore") {
+                            menuHeader.doesNotExist()
+                        }
+                    }
                 }
             }
         }
