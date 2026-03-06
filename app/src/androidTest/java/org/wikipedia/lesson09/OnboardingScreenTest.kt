@@ -69,7 +69,7 @@ class OnboardingScreenTest : TestCase() {
                }
            }
             ExploreScreen.items.childWith<InTheNewsItem> {
-                IsInstanceOf(NewsCardView::class.java)
+                isInstanceOf(NewsCardView::class.java)
             } perform {
 //                header.hasText("In the news")
                 pager.childAt<InTheNewsPager>(2) {
