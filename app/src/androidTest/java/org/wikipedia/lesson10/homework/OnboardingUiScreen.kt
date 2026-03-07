@@ -1,7 +1,7 @@
 package org.wikipedia.lesson10.homework
 
 import com.kaspersky.components.kautomator.component.common.views.UiView
-import com.kaspersky.components.kautomator.component.switch.UiSwitch
+import com.kaspersky.components.kautomator.component.scroll.UiScrollView
 import com.kaspersky.components.kautomator.component.text.UiButton
 import com.kaspersky.components.kautomator.component.text.UiTextView
 import com.kaspersky.components.kautomator.screen.UiScreen
@@ -10,11 +10,8 @@ object OnboardingUiScreen : UiScreen<OnboardingUiScreen>() {
 
     override val packageName = "org.wikipedia.alpha"
 
-    val pager = UiView {
+    val pager = UiScrollView {
         withId(this@OnboardingUiScreen.packageName, "fragment_pager")
-    }
-    val swipe = UiSwitch {
-        withId(this@OnboardingUiScreen.packageName, "scrollViewContainer")
     }
     val image = UiView {
         withId(this@OnboardingUiScreen.packageName, "imageViewCentered")

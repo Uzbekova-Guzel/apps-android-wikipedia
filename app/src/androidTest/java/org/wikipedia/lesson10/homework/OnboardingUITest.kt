@@ -1,7 +1,6 @@
 package org.wikipedia.lesson10.homework
 
 import androidx.test.ext.junit.rules.ActivityScenarioRule
-import com.kaspersky.components.kautomator.component.switch.UiSwitchableActions
 import com.kaspersky.kaspresso.testcases.api.testcase.TestCase
 import org.junit.Rule
 import org.junit.Test
@@ -27,8 +26,8 @@ class OnboardingUITest : TestCase() {
                     pageIndicator.isDisplayed()
                     continueButton.isDisplayed()
                 }
-                step("Переходит по свайпу на вторую страницу") {
-                    swipe.swipeSwitchThumb(UiSwitchableActions.Direction.LEFT)
+                step("Переходит по клику на Continue на вторую страницу") {
+                    continueButton.click()
                 }
                 step("Проверяет отображение элементов на второй странице") {
                     image.isDisplayed()
@@ -65,10 +64,22 @@ class OnboardingUITest : TestCase() {
     }
 
     @Test
-    fun checkSkipOnOnboardingScreen() {
+    fun checkSkipButtonOnOnboardingScreen() {
         run("Проверка скрытия экрана Onboarding по кнопке Skip") {
             step("Нажимает на кнопку Skip") {
                 OnboardingUiScreen.skipButton.click()
+            }
+            step("Проверяет отображение экрана Explore") {
+                ExploreScreen.logo.isDisplayed()
+            }
+        }
+    }
+
+    @Test
+    fun checkSkipDeviceBackOnOnboardingScreen() {
+        run("Проверка скрытия экрана Onboarding по системной кнопке Back") {
+            step("Нажимает на девайсе кнопку Back") {
+                device.uiDevice.pressBack()
             }
             step("Проверяет отображение экрана Explore") {
                 ExploreScreen.logo.isDisplayed()
@@ -100,28 +111,70 @@ class OnboardingUITest : TestCase() {
 
     @Test
     fun checkSwipesOnOnboardingscreen() {
-        run("Проверка перехода между страницами экрана Onboarding") {
+        run("Проверка перехода по свайпу между страницами экрана Onboarding") {
             OnboardingUiScreen {
+                step("Проверяет отображение заголовка и текста первой страницы") {
+                    primaryText.containsText("The Free Encyclopedia")
+                    secondaryText.containsText("We’ve found the following on your device:")
+                }
                 step("Переходит по свайпу на вторую страницу") {
-                    swipe.swipeSwitchThumb(UiSwitchableActions.Direction.LEFT)
+                    pager.swipeLeft()
                 }
                 step("Проверяет отображение заголовка и текста второй страницы") {
                     primaryText.containsText("New ways to explore")
                     secondaryText.containsText("Dive down the Wikipedia")
                 }
-                step("Переходит по клику на Continue на третью страницу") {
-                    continueButton.click()
+                step("Переходит по свайпу на последнюю страницу") {
+                    pager.swipeLeft()
+                    pager.swipeLeft()
                 }
-                step("Проверяет отображение заголовка и текста третьей страницы") {
-                    primaryText.containsText("Reading lists with sync")
-                    secondaryText.containsText("Join Wikipedia")
+                step("Проверяет отображение заголовка и текста последней страницы") {
+                    primaryText.containsText("Data & Privacy")
+                    secondaryText.containsText("We believe")
                 }
-                step("Переходит по свайпу на вторую страницу") {
-                    swipe.swipeSwitchThumb(UiSwitchableActions.Direction.RIGHT)
+                step("Пробует сделать свайп влево на последней странице") {
+                    pager.swipeLeft()
                 }
-                step("Проверяет отображение заголовка и текста второй страницы") {
-                    primaryText.containsText("New ways to explore")
-                    secondaryText.containsText("Dive down the Wikipedia")
+                step("Проверяет что остался на последней странице") {
+                    primaryText.containsText("Data & Privacy")
+                    secondaryText.containsText("We believe")
+                }
+                step("Переходит по свайпу на первую страницу") {
+                    pager.swipeRight()
+                    pager.swipeRight()
+                    pager.swipeRight()
+                }
+                step("Проверяет отображение заголовка и текста первой страницы") {
+                    primaryText.containsText("The Free Encyclopedia")
+                    secondaryText.containsText("We’ve found the following on your device:")
+                }
+                step("Пробует сделать свайп вправо на первой странице") {
+                    pager.swipeRight()
+                }
+                step("Проверяет что остался на первой странице") {
+                    primaryText.containsText("The Free Encyclopedia")
+                    secondaryText.containsText("We’ve found the following on your device:")
+                }
+            }
+        }
+    }
+
+    @Test
+    fun checkAddLanguageButtonNavigation() {
+        run("Проверка перехода на экран языков и возращение назад") {
+            step("Переходит по клику на кнопку Add language на экран языков") {
+                OnboardingUiScreen.addLanguageButton.click()
+            }
+            step("Проверяет открытие экрана языков") {
+                AddLanguageUIScreen.title.isDisplayed()
+            }
+            step("Переходит по клику на значок Back на экран Onboarding") {
+                AddLanguageUIScreen.backButton.click()
+            }
+            step("Проверяет отображение первой страницы Onboarding") {
+                OnboardingUiScreen {
+                    primaryText.containsText("The Free Encyclopedia")
+                    secondaryText.containsText("We’ve found the following on your device:")
                 }
             }
         }
