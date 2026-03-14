@@ -2,7 +2,6 @@ package org.wikipedia.lesson09
 
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import com.kaspersky.kaspresso.testcases.api.testcase.TestCase
-import org.hamcrest.core.IsInstanceOf
 import org.junit.Rule
 import org.junit.Test
 import org.wikipedia.feed.news.NewsCardView

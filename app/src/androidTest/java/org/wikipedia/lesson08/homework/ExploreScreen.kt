@@ -1,11 +1,10 @@
 package org.wikipedia.lesson08.homework
 
 import com.kaspersky.kaspresso.screens.KScreen
-import io.github.kakaocup.kakao.common.views.KView
 import io.github.kakaocup.kakao.image.KImageView
 import io.github.kakaocup.kakao.recycler.KRecyclerView
+import io.github.kakaocup.kakao.text.KButton
 import org.wikipedia.R
-import org.wikipedia.feed.featured.FeaturedArticleCardView
 import org.wikipedia.feed.view.FeedView
 
 object ExploreScreen : KScreen<ExploreScreen>() {
@@ -14,6 +13,10 @@ object ExploreScreen : KScreen<ExploreScreen>() {
 
     val logo = KImageView {
         withId(R.id.main_toolbar_wordmark)
+    }
+
+    val retryButton = KButton{
+        withId(R.id.view_card_offline_button_retry)
     }
 
     val items = KRecyclerView(
