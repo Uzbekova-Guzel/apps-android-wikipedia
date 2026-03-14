@@ -13,6 +13,9 @@ import org.wikipedia.main.MainActivity
 abstract class CustomTest(
     kaspressoBuilder: Kaspresso.Builder = Kaspresso.Builder.simple {
         flakySafetyParams = FlakySafetyParams.custom(30000)
+    }.apply {
+        stepWatcherInterceptors.clear()
+//        stepWatcherInterceptors.add()
     }
 ) : TestCase(kaspressoBuilder) {
 
