@@ -16,6 +16,9 @@ class FeaturedArticleItem(matcher: Matcher<View>) : KRecyclerItem<FeaturedArticl
     val headerIcon = KImageView(matcher) {
         withId(R.id.view_list_card_header_menu)
     }
+    val articleTitle = KTextView(matcher) {
+        withId(R.id.articleTitle)
+    }
     val items = KRecyclerView(
         parent = matcher,
         builder = { withId(R.id.view_list_card_list) },
