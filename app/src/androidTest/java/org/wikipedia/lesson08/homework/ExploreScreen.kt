@@ -19,6 +19,10 @@ object ExploreScreen : KScreen<ExploreScreen>() {
         withId(R.id.view_card_offline_button_retry)
     }
 
+    val closeButton = KButton{
+        withId(R.id.closeButton)
+    }
+
     val items = KRecyclerView(
         builder = {
             withId(R.id.feed_view)
