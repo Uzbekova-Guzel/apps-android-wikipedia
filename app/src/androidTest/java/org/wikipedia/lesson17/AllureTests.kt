@@ -15,13 +15,25 @@ class AllureTests : TestCase(Kaspresso.Builder.withForcedAllureSupport()) {
     val testRule = ActivityScenarioRule(MainActivity::class.java)
 
     @Test
-    fun allureTests() {
+    fun allurePassedTests() {
         run("Проверка экрана Onboarding с использованием Allure") {
             step("Проверяет что кнопка Skip отображается") {
                 OnboardingScreen.skipButton.isDisplayed()
             }
-            step("Проверяет что отображается картинка и язык English") {
+            step("Проверяет что кнопка Continue имеет текст Continue") {
                 OnboardingScreen.continueButton.hasText("Continue")
+            }
+        }
+    }
+
+    @Test
+    fun allureFailedTests() {
+        run("Проверка экрана Onboarding с использованием Allure") {
+            step("Проверяет что кнопка Skip отображается") {
+                OnboardingScreen.skipButton.isDisplayed()
+            }
+            step("Проверяет что кнопка Continue имеет текст Далее") {
+                OnboardingScreen.continueButton.hasText("Далее")
             }
         }
     }
