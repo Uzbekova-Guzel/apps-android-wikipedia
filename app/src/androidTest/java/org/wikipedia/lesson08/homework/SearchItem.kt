@@ -20,9 +20,9 @@ class SearchItem(matcher: Matcher<View>) : KRecyclerItem<SearchItem>(matcher) {
         withText("Search Wikipedia")
         isInstanceOf(MaterialTextView::class.java)
     }
-    val writeTextSearch = KEditText() {
-        withId(androidx.appcompat.R.id.search_src_text)
-    }
+//    val writeTextSearch = KEditText() {
+//        withId(androidx.appcompat.R.id.search_src_text)
+//    }
     val voiceIcon = KImageView(matcher) {
         withId(R.id.voice_search_button)
     }
