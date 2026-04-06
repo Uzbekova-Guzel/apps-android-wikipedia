@@ -6,10 +6,7 @@ import com.kaspersky.kaspresso.kaspresso.Kaspresso
 import com.kaspersky.kaspresso.testcases.api.testcase.TestCase
 import org.junit.Rule
 import org.junit.Test
-import org.wikipedia.activitytab.OnboardingScreen
-import org.wikipedia.lesson08.LanguageItem
 import org.wikipedia.lesson08.OnboardingScreen
-import org.wikipedia.lesson08.PagerItem
 import org.wikipedia.main.MainActivity
 
 class AllureTests : TestCase(Kaspresso.Builder.withForcedAllureSupport()) {
