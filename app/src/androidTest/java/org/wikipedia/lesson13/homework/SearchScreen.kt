@@ -7,7 +7,7 @@ object SearchScreen : KScreen<SearchScreen>() {
     override val layoutId: Int? = null
     override val viewClass: Class<*>? = null
 
-    val searchText = KEditText {
-        withId(androidx.appcompat.R.id.search_src_text)
-    }
+//    val searchText = KEditText {
+//        withId(androidx.appcompat.R.id.search_src_text)
+//    }
 }

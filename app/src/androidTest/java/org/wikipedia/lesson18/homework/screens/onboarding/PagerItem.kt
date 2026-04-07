@@ -1,4 +1,4 @@
-package org.wikipedia.lesson18
+package org.wikipedia.lesson18.homework.screens.onboarding
 
 import android.view.View
 import io.github.kakaocup.kakao.image.KImageView
@@ -8,8 +8,8 @@ import io.github.kakaocup.kakao.text.KButton
 import io.github.kakaocup.kakao.text.KTextView
 import org.hamcrest.Matcher
 import org.wikipedia.R
-import org.wikipedia.lesson18.extentions.name
-import org.wikipedia.lesson18.extentions.withParent
+import org.wikipedia.lesson18.homework.extentions.name
+import org.wikipedia.lesson18.homework.extentions.withParent
 
 class PagerItem(matcher: Matcher<View>) : KViewPagerItem<PagerItem>(matcher) {
 
@@ -23,13 +23,11 @@ class PagerItem(matcher: Matcher<View>) : KViewPagerItem<PagerItem>(matcher) {
             withId(R.id.primaryTextView)
         }.name(withParent("Заголовок"))
     }
-
     val addLanguageButton by lazy {
         KButton {
             withId(R.id.addLanguageButton)
         }.name(withParent("Кнопка добавления языка"))
     }
-
     val languages by lazy {
         KRecyclerView(
             parent = matcher,

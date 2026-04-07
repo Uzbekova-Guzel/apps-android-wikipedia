@@ -1,4 +1,4 @@
-package org.wikipedia.lesson18
+package org.wikipedia.lesson18.homework.utils
 
 import com.kaspersky.kaspresso.screens.KScreen
 

@@ -1,7 +1,7 @@
-package org.wikipedia.lesson18.extentions
+package org.wikipedia.lesson18.homework.extentions
 
 import io.github.kakaocup.kakao.common.actions.BaseActions
-import org.wikipedia.lesson18.NameHierarchy
+import org.wikipedia.lesson18.homework.utils.NameHierarchy
 
 private val elements = mutableMapOf<BaseActions, NameHierarchy>()
 

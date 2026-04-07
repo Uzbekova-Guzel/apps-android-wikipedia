@@ -1,4 +1,4 @@
-package org.wikipedia.lesson18
+package org.wikipedia.lesson18.homework.utils
 
 class NameHierarchy(private val name: String, private val parent: NameHierarchy? = null) {
 

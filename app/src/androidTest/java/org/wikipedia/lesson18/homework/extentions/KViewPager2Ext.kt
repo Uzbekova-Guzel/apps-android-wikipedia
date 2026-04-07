@@ -1,4 +1,4 @@
-package org.wikipedia.lesson18.extentions
+package org.wikipedia.lesson18.homework.extentions
 
 import io.github.kakaocup.kakao.pager2.KViewPager2
 import io.github.kakaocup.kakao.pager2.KViewPagerItem

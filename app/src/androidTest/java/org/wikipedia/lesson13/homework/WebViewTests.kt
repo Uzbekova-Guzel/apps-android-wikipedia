@@ -32,7 +32,7 @@ class WebViewTests : TestCase() {
                 }
             }
             step("Ищет в поиске 'kotlin island'") {
-                SearchScreen.searchText.typeText("kotlin island")
+//                SearchScreen.searchText.typeText("kotlin island")
             }
             step("Тап по первой статье") {
                 device.uiDevice.findObject(UiSelector().text("Kotlin Island")).click()

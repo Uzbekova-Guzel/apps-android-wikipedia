@@ -1,4 +1,4 @@
-package org.wikipedia.lesson18.extentions
+package org.wikipedia.lesson18.homework.extentions
 
 import androidx.test.espresso.matcher.ViewMatchers
 import io.github.kakaocup.kakao.recycler.KRecyclerItem
