@@ -9,7 +9,7 @@ import org.junit.Test
 import org.wikipedia.lesson08.OnboardingScreen
 import org.wikipedia.main.MainActivity
 
-class AllureTests : TestCase(Kaspresso.Builder.withForcedAllureSupport()) {
+class AllureTests : TestCase(Kaspresso.Builder.withForcedAllureSupport(false)) {
 
     @get:Rule
     val testRule = ActivityScenarioRule(MainActivity::class.java)
@@ -38,3 +38,5 @@ class AllureTests : TestCase(Kaspresso.Builder.withForcedAllureSupport()) {
         }
     }
 }
+
+//allure serve app/build/allure-results
