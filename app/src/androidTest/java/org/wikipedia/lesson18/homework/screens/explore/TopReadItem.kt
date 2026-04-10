@@ -8,6 +8,7 @@ import io.github.kakaocup.kakao.text.KTextView
 import org.hamcrest.Matcher
 import org.wikipedia.R
 import org.wikipedia.lesson08.homework.TopReadRecycler
+import org.wikipedia.lesson18.homework.extentions.invokeAtIndex
 import org.wikipedia.lesson18.homework.extentions.name
 import org.wikipedia.lesson18.homework.extentions.withParent
 
@@ -36,5 +37,9 @@ class TopReadItem(matcher: Matcher<View>) : KRecyclerItem<TopReadItem>(matcher) 
         KTextView(matcher) {
             withId(R.id.footerActionButton)
         }.name(withParent("Кнопка More link"))
+    }
+
+    fun item(index: Int, fnc: TopReadRecycler.() -> Unit) {
+        items.invokeAtIndex(index, fnc)
     }
 }

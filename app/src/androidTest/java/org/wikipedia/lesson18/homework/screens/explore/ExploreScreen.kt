@@ -42,6 +42,6 @@ object ExploreScreen : NamedScreen<ExploreScreen>() {
                 itemType(::InTheNewsItem)
                 itemType(::FeaturedArticleItem)
             }
-        ).name(withParent("Блоки"))
+        ).name(withParent("Список блоков"))
     }
 }
