@@ -7,7 +7,6 @@ import io.github.kakaocup.kakao.recycler.KRecyclerView
 import io.github.kakaocup.kakao.text.KTextView
 import org.hamcrest.Matcher
 import org.wikipedia.R
-import org.wikipedia.lesson08.homework.TopReadRecycler
 import org.wikipedia.lesson18.homework.extentions.invokeAtIndex
 import org.wikipedia.lesson18.homework.extentions.name
 import org.wikipedia.lesson18.homework.extentions.withParent

@@ -49,4 +49,8 @@ object ExploreScreen : NamedScreen<ExploreScreen>() {
     fun customizeBlock(fnc: CustomizeItem.() -> Unit) {
         items.invokeWithText("Customize", fnc)
     }
+
+    fun topReadBlock(fnc: TopReadItem.() -> Unit) {
+        items.invokeWithText("Top read", fnc)
+    }
 }
