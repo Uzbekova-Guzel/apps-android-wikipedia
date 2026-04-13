@@ -5,6 +5,7 @@ import io.github.kakaocup.kakao.recycler.KRecyclerView
 import io.github.kakaocup.kakao.text.KButton
 import org.wikipedia.R
 import org.wikipedia.feed.view.FeedView
+import org.wikipedia.lesson18.homework.extentions.invokeWithText
 import org.wikipedia.lesson18.homework.extentions.name
 import org.wikipedia.lesson18.homework.utils.NamedScreen
 
@@ -43,5 +44,9 @@ object ExploreScreen : NamedScreen<ExploreScreen>() {
                 itemType(::FeaturedArticleItem)
             }
         ).name(withParent("Список блоков"))
+    }
+
+    fun customizeBlock(fnc: CustomizeItem.() -> Unit) {
+        items.invokeWithText("Customize", fnc)
     }
 }
