@@ -26,4 +26,8 @@ object SettingsScreen : NamedScreen<SettingsScreen>() {
     fun showLinkPreviews(fnc: SettingsItem.() -> Unit) {
         items.invokeWithText("Show link previews", fnc)
     }
+
+    fun downloadOnlyOverWiFi(fnc: SettingsItem.() -> Unit) {
+        items.invokeWithText("Download only over Wi-Fi", fnc)
+    }
 }

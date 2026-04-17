@@ -15,4 +15,10 @@ class SettingsItem(matcher: Matcher<View>) : KRecyclerItem<SettingsItem>(matcher
             withId(R.id.switchWidget)
         }.name(withParent("Тогл Show link previews"))
     }
+
+    val downloadOnlyOverWiFiSwitch by lazy {
+        KCheckBox(matcher) {
+            withId(R.id.switchWidget)
+        }.name(withParent("Тогл Download only over Wi-Fi"))
+    }
 }

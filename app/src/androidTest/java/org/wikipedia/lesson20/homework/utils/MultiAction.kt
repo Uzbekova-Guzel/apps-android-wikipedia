@@ -26,9 +26,9 @@ class MultiAction(private val enableText: String) : ViewAction {
     ) {
         if (view == null) return
         when (view) {
+            is Button -> view.performClick()
             is Checkable -> view.isChecked = true
             is EditText -> ViewActions.typeText(enableText).perform(uiController, view)
-            is Button -> view.performClick()
         }
     }
 }
