@@ -1,5 +1,6 @@
 package org.wikipedia.lesson18.homework.screens.explore
 
+import io.github.kakaocup.kakao.common.views.KView
 import io.github.kakaocup.kakao.image.KImageView
 import io.github.kakaocup.kakao.recycler.KRecyclerView
 import io.github.kakaocup.kakao.text.KButton
@@ -45,6 +46,10 @@ object ExploreScreen : NamedScreen<ExploreScreen>() {
             }
         ).name(withParent("Список блоков"))
     }
+
+    val moreTab = KView {
+        withContentDescription("More")
+    }.name(withParent("Таб More"))
 
     fun customizeBlock(fnc: CustomizeItem.() -> Unit) {
         items.invokeWithText("Customize", fnc)

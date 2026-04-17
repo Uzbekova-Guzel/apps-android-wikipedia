@@ -5,6 +5,8 @@ import org.wikipedia.lesson18.homework.screens.explore.ExploreScreen
 import org.wikipedia.lesson18.homework.screens.onboarding.OnboardingScreen
 import org.wikipedia.lesson19.homework.extentions.action
 import org.wikipedia.lesson19.homework.extentions.verify
+import org.wikipedia.lesson19.homework.screens.MoreMenuScreen
+import org.wikipedia.lesson19.homework.screens.SettingsScreen
 import org.wikipedia.lesson19.homework.utils.BaseTest
 
 class ExploreTests : BaseTest() {
@@ -15,7 +17,7 @@ class ExploreTests : BaseTest() {
             action.click(OnboardingScreen.skipButton)
             ExploreScreen.topReadBlock {
                 verify.isDisplayed(this)
-                item(4) {
+                item(2) {
                     verify.isDisplayed(image)
                 }
             }
@@ -26,11 +28,11 @@ class ExploreTests : BaseTest() {
     fun checkShowLinkPreviewsToggleTest() {
         run {
             action.click(OnboardingScreen.skipButton)
-            ExploreScreen.topReadBlock {
-                verify.isDisplayed(this)
-                item(4) {
-                    verify.isDisplayed(image)
-                }
+            action.click(ExploreScreen.moreTab)
+            action.click(MoreMenuScreen.settingsButton)
+            SettingsScreen.showLinkPreviews {
+                action.setChecked(linkPreviewsSwitch, false)
+                verify.isNotChecked(linkPreviewsSwitch)
             }
         }
     }
