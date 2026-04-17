@@ -53,6 +53,10 @@ object ExploreScreen : NamedScreen<ExploreScreen>() {
         withId(R.id.nav_tab_more)
     }.name(withParent("Таб More"))
 
+
+    fun searchBlock(fnc: SearchItem.() -> Unit) {
+        items.invokeWithText("Search Wikipedia", fnc)
+    }
     fun customizeBlock(fnc: CustomizeItem.() -> Unit) {
         items.invokeWithText("Customize", fnc)
     }

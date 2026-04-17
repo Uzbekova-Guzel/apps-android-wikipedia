@@ -1,7 +1,11 @@
 package org.wikipedia.lesson20.homework.tests
 
 import org.junit.Test
+import org.wikipedia.lesson18.homework.screens.explore.ExploreScreen
 import org.wikipedia.lesson18.homework.screens.onboarding.OnboardingScreen
+import org.wikipedia.lesson19.homework.screens.MoreMenuScreen
+import org.wikipedia.lesson19.homework.screens.SearchScreen
+import org.wikipedia.lesson19.homework.screens.SettingsScreen
 import org.wikipedia.lesson19.homework.utils.BaseTest
 import org.wikipedia.lesson20.homework.extentions.equalsWithTrim
 import org.wikipedia.lesson20.homework.extentions.multiAction
@@ -20,6 +24,28 @@ class ExampleTests : BaseTest() {
         run {
             OnboardingScreen.page(1) {
                 title.equalsWithTrim("New ways to explore")
+            }
+        }
+    }
+
+    @Test
+    fun hwTests() {
+        run {
+            OnboardingScreen.skipButton.multiAction()
+//            ExploreScreen.searchBlock{
+//                searchIcon.multiAction()
+//            }
+//            SearchScreen.searchText {
+//                multiAction("Kotlin")
+//                equalsWithTrim("Kotlin")
+//            }
+//            device.uiDevice.pressBack()
+//            device.uiDevice.pressBack()
+            ExploreScreen.moreTab.multiAction()
+            MoreMenuScreen.settingsButton.multiAction()
+            SettingsScreen.downloadOnlyOverWiFi{
+                downloadOnlyOverWiFiSwitch.multiAction()
+                downloadOnlyOverWiFiSwitch.isChecked()
             }
         }
     }

@@ -6,3 +6,7 @@ import org.wikipedia.lesson20.homework.utils.MultiAction
 fun KBaseView<*>.multiAction() {
     view.perform(MultiAction("On"))
 }
+
+fun KBaseView<*>.multiAction(text: String) {
+    view.perform(MultiAction(text))
+}
