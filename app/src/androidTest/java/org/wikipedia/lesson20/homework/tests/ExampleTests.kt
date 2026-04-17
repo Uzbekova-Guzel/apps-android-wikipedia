@@ -1,0 +1,26 @@
+package org.wikipedia.lesson20.homework.tests
+
+import org.junit.Test
+import org.wikipedia.lesson18.homework.screens.onboarding.OnboardingScreen
+import org.wikipedia.lesson19.homework.utils.BaseTest
+import org.wikipedia.lesson20.homework.extentions.equalsWithTrim
+import org.wikipedia.lesson20.homework.extentions.multiAction
+
+class ExampleTests : BaseTest() {
+
+    @Test
+    fun multiActionTest() {
+        run {
+            OnboardingScreen.skipButton.multiAction()
+        }
+    }
+
+    @Test
+    fun assertionTest() {
+        run {
+            OnboardingScreen.page(1) {
+                title.equalsWithTrim("New ways to explore")
+            }
+        }
+    }
+}
