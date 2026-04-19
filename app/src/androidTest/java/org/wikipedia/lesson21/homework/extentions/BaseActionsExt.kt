@@ -1,9 +1,9 @@
-package org.wikipedia.lesson21.extentions
+package org.wikipedia.lesson21.homework.extentions
 
 import android.view.View
 import io.github.kakaocup.kakao.common.actions.BaseActions
-import org.wikipedia.lesson21.utils.HasClassOrChildWithClass
-import org.wikipedia.lesson21.utils.HasIdOrChildWithIdAction
+import org.wikipedia.lesson21.homework.utils.HasClassOrChildWithClass
+import org.wikipedia.lesson21.homework.utils.HasIdOrChildWithIdAction
 
 fun BaseActions.hasIdOrChildWithId(resourceId: Int): Boolean {
     val hasIdOrChildWithIdIdAction = HasIdOrChildWithIdAction(resourceId)

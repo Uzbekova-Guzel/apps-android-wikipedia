@@ -31,8 +31,8 @@ class ExploreTests : BaseTest() {
             action.click(ExploreScreen.moreTab)
             action.click(MoreMenuScreen.settingsButton)
             SettingsScreen.showLinkPreviews {
-                action.setChecked(linkPreviewsSwitch, false)
-                verify.isNotChecked(linkPreviewsSwitch)
+                action.setChecked(switchWidget, false)
+                verify.isNotChecked(switchWidget)
             }
         }
     }

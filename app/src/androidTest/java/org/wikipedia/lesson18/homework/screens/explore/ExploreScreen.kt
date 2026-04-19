@@ -10,7 +10,7 @@ import org.wikipedia.feed.view.FeedView
 import org.wikipedia.lesson18.homework.extentions.invokeWithText
 import org.wikipedia.lesson18.homework.extentions.name
 import org.wikipedia.lesson18.homework.utils.NamedScreen
-import org.wikipedia.lesson21.extentions.invokeAtIndexAndClass
+import org.wikipedia.lesson21.homework.extentions.invokeAtIndexAndClass
 
 object ExploreScreen : NamedScreen<ExploreScreen>() {
 
