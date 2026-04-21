@@ -9,6 +9,7 @@ import org.wikipedia.lesson19.homework.screens.SettingsScreen
 import org.wikipedia.lesson19.homework.utils.BaseTest
 import org.wikipedia.lesson20.homework.extentions.equalsWithTrim
 import org.wikipedia.lesson20.homework.extentions.multiAction
+import org.wikipedia.lesson22.screens.NavBar
 
 class ExampleTests : BaseTest() {
 
@@ -24,7 +25,7 @@ class ExampleTests : BaseTest() {
     fun invokeAtIndexAndIdTest() {
         run {
             OnboardingScreen.skipButton.multiAction()
-            ExploreScreen.moreTab.multiAction()
+            NavBar.moreTab.multiAction()
             MoreMenuScreen.settingsButton.multiAction()
             SettingsScreen.switchAtIndex(0) {
                 switchWidget.multiAction()

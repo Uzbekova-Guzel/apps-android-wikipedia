@@ -2,7 +2,6 @@ package org.wikipedia.lesson18.homework.screens.explore
 
 import io.github.kakaocup.kakao.image.KImageView
 import io.github.kakaocup.kakao.recycler.KRecyclerView
-import io.github.kakaocup.kakao.tabs.KTabLayout
 import io.github.kakaocup.kakao.text.KButton
 import org.wikipedia.R
 import org.wikipedia.feed.featured.FeaturedArticleCardView
@@ -11,6 +10,7 @@ import org.wikipedia.lesson18.homework.extentions.invokeWithText
 import org.wikipedia.lesson18.homework.extentions.name
 import org.wikipedia.lesson18.homework.utils.NamedScreen
 import org.wikipedia.lesson21.homework.extentions.invokeAtIndexAndClass
+import org.wikipedia.lesson22.screens.SearchWidget
 
 object ExploreScreen : NamedScreen<ExploreScreen>() {
 
@@ -49,14 +49,16 @@ object ExploreScreen : NamedScreen<ExploreScreen>() {
         ).name(withParent("Список блоков"))
     }
 
-    val moreTab = KTabLayout {
-        withId(R.id.nav_tab_more)
-    }.name(withParent("Таб More"))
-
+    val searchWidget by lazy {
+        SearchWidget {
+            withId(R.id.search_container)
+        }.name(withParent("Виджет поиска"))
+    }
 
     fun searchBlock(fnc: SearchItem.() -> Unit) {
         items.invokeWithText("Search Wikipedia", fnc)
     }
+
     fun customizeBlock(fnc: CustomizeItem.() -> Unit) {
         items.invokeWithText("Customize", fnc)
     }

@@ -1,14 +1,13 @@
 package org.wikipedia.lesson20.homework.tests
 
 import org.junit.Test
-import org.wikipedia.lesson18.homework.screens.explore.ExploreScreen
 import org.wikipedia.lesson18.homework.screens.onboarding.OnboardingScreen
 import org.wikipedia.lesson19.homework.screens.MoreMenuScreen
-import org.wikipedia.lesson19.homework.screens.SearchScreen
 import org.wikipedia.lesson19.homework.screens.SettingsScreen
 import org.wikipedia.lesson19.homework.utils.BaseTest
 import org.wikipedia.lesson20.homework.extentions.equalsWithTrim
 import org.wikipedia.lesson20.homework.extentions.multiAction
+import org.wikipedia.lesson22.screens.NavBar
 
 class ExampleTests : BaseTest() {
 
@@ -41,7 +40,7 @@ class ExampleTests : BaseTest() {
 //            }
 //            device.uiDevice.pressBack()
 //            device.uiDevice.pressBack()
-            ExploreScreen.moreTab.multiAction()
+            NavBar.moreTab.multiAction()
             MoreMenuScreen.settingsButton.multiAction()
             SettingsScreen.downloadOnlyOverWiFi{
                 switchWidget.multiAction()
