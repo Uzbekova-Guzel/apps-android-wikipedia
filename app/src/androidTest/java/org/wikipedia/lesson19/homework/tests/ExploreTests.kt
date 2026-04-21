@@ -8,7 +8,7 @@ import org.wikipedia.lesson19.homework.extentions.verify
 import org.wikipedia.lesson19.homework.screens.MoreMenuScreen
 import org.wikipedia.lesson19.homework.screens.SettingsScreen
 import org.wikipedia.lesson19.homework.utils.BaseTest
-import org.wikipedia.lesson22.screens.NavBar
+import org.wikipedia.lesson22.screens.navbars.MainNavBar
 
 class ExploreTests : BaseTest() {
 
@@ -29,7 +29,7 @@ class ExploreTests : BaseTest() {
     fun checkShowLinkPreviewsToggleTest() {
         run {
             action.click(OnboardingScreen.skipButton)
-            action.click(NavBar.moreTab)
+            action.click(MainNavBar.moreTab)
             action.click(MoreMenuScreen.settingsButton)
             SettingsScreen.showLinkPreviews {
                 action.setChecked(switchWidget, false)

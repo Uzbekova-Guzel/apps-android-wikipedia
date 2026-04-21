@@ -1,10 +1,11 @@
-package org.wikipedia.lesson22.screens
+package org.wikipedia.lesson22.screens.search
 
 import androidx.appcompat.widget.AppCompatTextView
 import io.github.kakaocup.kakao.text.KTextView
 import org.wikipedia.lesson18.homework.utils.NamedScreen
 import org.wikipedia.R
 import org.wikipedia.lesson18.homework.extentions.name
+import org.wikipedia.lesson22.screens.search.NoRecentlyViewedWidget
 
 object SearchScreen : NamedScreen<SearchScreen>() {
 

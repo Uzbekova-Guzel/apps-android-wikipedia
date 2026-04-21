@@ -1,4 +1,4 @@
-package org.wikipedia.lesson22.screens
+package org.wikipedia.lesson22.screens.search
 
 import com.google.android.material.textview.MaterialTextView
 import io.github.kakaocup.kakao.common.builders.ViewBuilder

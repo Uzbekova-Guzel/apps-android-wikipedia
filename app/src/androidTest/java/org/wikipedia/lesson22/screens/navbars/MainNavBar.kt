@@ -1,13 +1,13 @@
-package org.wikipedia.lesson22.screens
+package org.wikipedia.lesson22.screens.navbars
 
 import io.github.kakaocup.kakao.tabs.KTabLayout
 import org.wikipedia.R
 import org.wikipedia.lesson18.homework.extentions.name
 import org.wikipedia.lesson18.homework.utils.NamedScreen
 
-object NavBar : NamedScreen<NavBar>() {
+object MainNavBar : NamedScreen<MainNavBar>() {
 
-    override val screenName = " Нав бар"
+    override val screenName = "Нав бар"
     override val layoutId = null
     override val viewClass = null
 
