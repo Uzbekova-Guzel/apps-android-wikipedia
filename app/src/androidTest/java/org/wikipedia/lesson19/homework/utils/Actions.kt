@@ -13,7 +13,7 @@ class Actions(private val steps: StepDefinitions) : StepsDsl<Actions>() {
         steps.click("Нажимает на '${element.getName()}'", element)
     }
 
-    fun setChecked(element: CheckableActions, state: Boolean) {
-        steps.setChecked("Переключает тогл '${element.getName()}' на $state", element, state)
+    fun setState(element: CheckableActions, state: Boolean) {
+        steps.setState("Переключает тогл '${element.getName()}' на $state", element, state)
     }
 }

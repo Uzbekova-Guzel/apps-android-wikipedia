@@ -32,7 +32,7 @@ class ExploreTests : BaseTest() {
             action.click(MainNavBar.moreTab)
             action.click(MoreMenuScreen.settingsButton)
             SettingsScreen.showLinkPreviews {
-                action.setChecked(switchWidget, false)
+                action.setState(switchWidget, false)
                 verify.isNotChecked(switchWidget)
             }
         }

@@ -13,6 +13,42 @@ class ThemeWithWidgetTests : BaseTest() {
 
     @Test
     fun textSizeChangeTest() {
+        openThemeBottomsheetScenario()
+        run {
+            ThemeBottomsheetScreen.themeTextSizeWidget {
+                verify.isDisplayed(this)
+                action.click(increaseSizeButton)
+                verify.hasText(sizePercentText, "110%")
+                action.click(decreaseSizeButton)
+                action.click(decreaseSizeButton)
+                verify.hasText(sizePercentText, "90%")
+            }
+        }
+    }
+
+    @Test
+    fun themeSwitchTest() {
+        openThemeBottomsheetScenario()
+        run {
+            ThemeBottomsheetScreen.themeButtonsWidget {
+                verify.isDisplayed(this)
+                action.setState(matchSystemThemeSwitch, false)
+                verify {
+                    isNotChecked(matchSystemThemeSwitch)
+                    isEnabled(darkThemeButton)
+                    isEnabled(blackThemeButton)
+                }
+                action.setState(matchSystemThemeSwitch, true)
+                verify {
+                    isChecked(matchSystemThemeSwitch)
+                    isDisabled(darkThemeButton)
+                    isDisabled(blackThemeButton)
+                }
+            }
+        }
+    }
+
+    fun openThemeBottomsheetScenario() {
         run {
             action.click(OnboardingScreen.skipButton)
             try {
@@ -30,9 +66,6 @@ class ThemeWithWidgetTests : BaseTest() {
             } catch (_: Exception) {
             }
             action.click(ArticleNavBar.themeTab)
-            ThemeBottomsheetScreen {
-                verify.isDisplayed(readingTitle)
-            }
         }
     }
 }

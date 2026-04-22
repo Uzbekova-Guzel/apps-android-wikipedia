@@ -15,6 +15,12 @@ class StepDefinitions(private val testContext: TestContext<*>) {
         }
     }
 
+    fun setState(step: String, element: CheckableActions, state: Boolean) {
+        execute(step) {
+            element.setChecked(state)
+        }
+    }
+
     fun isDisplayed(step: String, element: BaseAssertions) {
         execute(step) {
             element.isDisplayed()
@@ -37,9 +43,21 @@ class StepDefinitions(private val testContext: TestContext<*>) {
         }
     }
 
-    fun setChecked(step: String, element: CheckableActions, state: Boolean) {
+    fun isEnabled(step: String, element: BaseAssertions) {
         execute(step) {
-            element.setChecked(state)
+            element.isEnabled()
+        }
+    }
+
+    fun isDisabled(step: String, element: BaseAssertions) {
+        execute(step) {
+            element.isDisabled()
+        }
+    }
+
+    fun isChecked(step: String, element: CheckableAssertions) {
+        execute(step) {
+            element.isChecked()
         }
     }
 
