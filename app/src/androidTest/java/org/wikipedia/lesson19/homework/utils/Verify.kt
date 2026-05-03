@@ -5,6 +5,7 @@ import io.github.kakaocup.kakao.common.actions.BaseActions
 import io.github.kakaocup.kakao.common.assertions.BaseAssertions
 import io.github.kakaocup.kakao.text.TextViewAssertions
 import org.wikipedia.lesson18.homework.extentions.getName
+import org.wikipedia.lesson23.utils.KWebViewElement
 
 // Шаги проверок
 class Verify(private val steps: StepDefinitions) : StepsDsl<Verify>() {
@@ -68,6 +69,31 @@ class Verify(private val steps: StepDefinitions) : StepsDsl<Verify>() {
         steps.isDisabled(
             "Проверяет, что элемент '${(element as BaseActions).getName()}' в состоянии Disabled",
             element
+        )
+    }
+
+    fun isDisplayed(element: KWebViewElement) {
+        steps.isDisplayed(
+            "Проверяет, что отображается '${element.getName()}'",
+            element
+        )
+    }
+
+    fun hasText(element: KWebViewElement, text: String) {
+        steps.hasText(
+            "Проверяет что текст в элементе '${element.getName()}' эквивалентен '$text'",
+            element,
+            text,
+            false
+        )
+    }
+
+    fun containsText(element: KWebViewElement, text: String) {
+        steps.hasText(
+            "Проверяет что текст в элементе '${element.getName()}' содержит подстроку '$text'",
+            element,
+            text,
+            true
         )
     }
 }
