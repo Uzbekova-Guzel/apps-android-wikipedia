@@ -1,4 +1,4 @@
-package org.wikipedia.lesson24
+package org.wikipedia.lesson24.utils
 
 import io.github.kakaocup.compose.intercept.operation.ComposeOperationType
 

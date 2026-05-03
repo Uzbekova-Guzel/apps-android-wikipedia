@@ -1,4 +1,4 @@
-package org.wikipedia.lesson24
+package org.wikipedia.lesson24.utils
 
 import io.github.kakaocup.compose.node.element.ComposeScreen
 import org.wikipedia.lesson18.homework.utils.NameHierarchy

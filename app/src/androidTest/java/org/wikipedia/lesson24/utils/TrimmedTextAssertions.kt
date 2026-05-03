@@ -1,4 +1,4 @@
-package org.wikipedia.lesson24
+package org.wikipedia.lesson24.utils
 
 import androidx.compose.ui.semantics.SemanticsProperties
 import androidx.compose.ui.semantics.getOrNull

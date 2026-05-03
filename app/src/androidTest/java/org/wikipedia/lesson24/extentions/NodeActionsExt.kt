@@ -2,7 +2,7 @@ package org.wikipedia.lesson24.extentions
 
 import io.github.kakaocup.compose.node.action.NodeActions
 import org.wikipedia.lesson18.homework.utils.NameHierarchy
-import org.wikipedia.lesson24.ClickIfEnabledAction
+import org.wikipedia.lesson24.utils.ClickIfEnabledAction
 
 private val elements = mutableMapOf<NodeActions, NameHierarchy>()
 
