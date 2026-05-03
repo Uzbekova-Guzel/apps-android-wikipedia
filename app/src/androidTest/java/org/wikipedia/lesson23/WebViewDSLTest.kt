@@ -29,7 +29,10 @@ class WebViewDSLTest : BaseTest() {
                 verify.isDisplayed(title)
                 action.click(references)
                 verify.hasText(references, "References")
-//                verify.hasText(referencesList., "References")
+                referencesItem(2) {
+                    verify.hasText(index, "[2]")
+                }
+
             }
         }
     }

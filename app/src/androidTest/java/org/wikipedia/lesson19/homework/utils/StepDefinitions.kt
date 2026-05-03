@@ -71,6 +71,7 @@ class StepDefinitions(private val testContext: TestContext<*>) {
     fun click(step: String, element: KWebViewElement) {
         execute(step) {
             element.performWebViewAction {
+                scroll()
                 click()
             }
         }

@@ -32,4 +32,8 @@ object ArticleScreen : NamedScreen<ArticleScreen>() {
         KWebViewList(webView, "//ol")
             .name(withParent("Список"))
     }
+
+    fun referencesItem(index: Int, fnc: ReferencesItem.() -> Unit) {
+        referencesList.childAt(index, fnc)
+    }
 }
