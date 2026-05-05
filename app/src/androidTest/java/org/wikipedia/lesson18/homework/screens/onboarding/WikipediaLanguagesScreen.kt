@@ -1,14 +1,18 @@
 package org.wikipedia.lesson18.homework.screens.onboarding
 
 import androidx.appcompat.widget.AppCompatImageButton
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
 import io.github.kakaocup.kakao.recycler.KRecyclerView
 import io.github.kakaocup.kakao.text.KButton
 import io.github.kakaocup.kakao.text.KTextView
 import org.wikipedia.R
+import org.wikipedia.lesson18.homework.extentions.invokeAtIndex
 import org.wikipedia.lesson18.homework.extentions.name
+import org.wikipedia.lesson18.homework.extentions.withParent
 import org.wikipedia.lesson18.homework.screens.customize.CustomizeRecycler
 import org.wikipedia.lesson18.homework.utils.NamedScreen
+import org.wikipedia.settings.languages.WikipediaLanguagesItemView
 
 object WikipediaLanguagesScreen : NamedScreen<WikipediaLanguagesScreen>() {
 
@@ -29,14 +33,34 @@ object WikipediaLanguagesScreen : NamedScreen<WikipediaLanguagesScreen>() {
         }.name(withParent("Заголовок"))
     }
 
+    val languageListTitle by lazy {
+        KTextView() {
+            withId(R.id.section_header_text)
+        }.name(withParent("Заголовок"))
+    }
+
     val items by lazy {
         KRecyclerView(
-            builder = {
-                withId(R.id.wikipedia_languages_recycler)
-            },
+            builder = { isInstanceOf(WikipediaLanguagesItemView::class.java) },
             itemTypeBuilder = {
-                itemType(::WikiLanguagesRecycler)
+                itemType(::WikiLanguageItem)
             }
         ).name(withParent("Список добавленных языков"))
+    }
+
+    val plusImage by lazy {
+        KTextView() {
+            isInstanceOf(AppCompatImageView::class.java)
+        }.name(withParent("Картинка Plus"))
+    }
+
+    val addLanguageText by lazy {
+        KTextView() {
+            withId(R.id.wiki_language_title)
+        }.name(withParent("Текст Add language"))
+    }
+
+    fun item(index: Int, fnc: WikiLanguageItem.() -> Unit) {
+        items.invokeAtIndex(index, fnc)
     }
 }

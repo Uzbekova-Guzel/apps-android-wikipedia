@@ -7,6 +7,7 @@ import io.github.kakaocup.kakao.check.CheckableActions
 import io.github.kakaocup.kakao.check.CheckableAssertions
 import io.github.kakaocup.kakao.common.actions.BaseActions
 import io.github.kakaocup.kakao.common.assertions.BaseAssertions
+import io.github.kakaocup.kakao.text.TextViewActions
 import io.github.kakaocup.kakao.text.TextViewAssertions
 import org.wikipedia.lesson23.utils.KWebViewElement
 import org.wikipedia.lesson24.extentions.assertTrimmedTextIsEquals
@@ -112,6 +113,12 @@ class StepDefinitions(private val testContext: TestContext<*>) {
     fun assertTrimmedTextIsEquals(step: String, element: NodeAssertions, expected: String) {
         execute(step) {
             element.assertTrimmedTextIsEquals(expected)
+        }
+    }
+
+    fun click(step: String, element: TextViewActions, text: String) {
+        execute(step) {
+            element.clickSpanWithText(text)
         }
     }
 

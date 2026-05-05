@@ -3,6 +3,7 @@ package org.wikipedia.lesson19.homework.utils
 import io.github.kakaocup.compose.node.action.NodeActions
 import io.github.kakaocup.kakao.check.CheckableActions
 import io.github.kakaocup.kakao.common.actions.BaseActions
+import io.github.kakaocup.kakao.text.TextViewActions
 import org.wikipedia.lesson18.homework.extentions.getName
 import org.wikipedia.lesson23.utils.KWebViewElement
 import org.wikipedia.lesson24.extentions.getName
@@ -26,5 +27,9 @@ class Actions(private val steps: StepDefinitions) : StepsDsl<Actions>() {
 
     fun clickIfEnabled(element: NodeActions) {
         steps.clickIfEnabled("Нажимает на '${element.getName()}'", element)
+    }
+
+    fun click(element: TextViewActions) {
+        steps.click("Нажимает на '${element.getName()}'", element)
     }
 }
