@@ -1,0 +1,17 @@
+package org.wikipedia.lesson25.closebanners
+
+import com.kaspersky.kaspresso.testcases.core.testcontext.BaseTestContext
+import io.qameta.allure.kotlin.Allure
+import org.wikipedia.lesson25.utils.ScreenBehaviorBase
+
+class ClosePlayTodayGame(testContext: BaseTestContext) : ScreenBehaviorBase(testContext) {
+
+    override val step = "Закрывает блок запуска игры"
+    override val action: Allure.StepContext.() -> Unit = {
+        getElementById("closeButton").click()
+    }
+
+    override fun isConditionMet(): Boolean {
+        return checkScreenById("playGameButton")
+    }
+}
