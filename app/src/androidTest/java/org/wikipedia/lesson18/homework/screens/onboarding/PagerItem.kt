@@ -8,6 +8,7 @@ import io.github.kakaocup.kakao.text.KButton
 import io.github.kakaocup.kakao.text.KTextView
 import org.hamcrest.Matcher
 import org.wikipedia.R
+import org.wikipedia.lesson18.homework.extentions.invokeAtIndex
 import org.wikipedia.lesson18.homework.extentions.name
 import org.wikipedia.lesson18.homework.extentions.withParent
 
@@ -24,7 +25,7 @@ class PagerItem(matcher: Matcher<View>) : KViewPagerItem<PagerItem>(matcher) {
         }.name(withParent("Заголовок"))
     }
     val addLanguageButton by lazy {
-        KButton {
+        KButton(matcher) {
             withId(R.id.addLanguageButton)
         }.name(withParent("Кнопка добавления языка"))
     }
@@ -38,5 +39,9 @@ class PagerItem(matcher: Matcher<View>) : KViewPagerItem<PagerItem>(matcher) {
                 itemType(::LanguageItem)
             }
         ).name(withParent("Список языков"))
+    }
+
+    fun languagesByIndex(index: Int, fnc: LanguageItem.() -> Unit) {
+        languages.invokeAtIndex<LanguageItem>(index, fnc)
     }
 }

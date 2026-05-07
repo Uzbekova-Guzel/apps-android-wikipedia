@@ -5,4 +5,4 @@ import io.github.kakaocup.kakao.recycler.KRecyclerItem
 import io.github.kakaocup.kakao.text.TextViewAssertions
 import org.hamcrest.Matcher
 
-class LanguageItem(matcher: Matcher<View>) : KRecyclerItem<PagerItem>(matcher), TextViewAssertions
+class LanguageItem(matcher: Matcher<View>) : KRecyclerItem<LanguageItem>(matcher), TextViewAssertions

@@ -2,6 +2,7 @@ package org.wikipedia.lesson24.screens
 
 import org.wikipedia.compose.uitests.Tags.LANGUAGE_LIST
 import org.wikipedia.lesson24.extentions.createLazyList
+import org.wikipedia.lesson24.extentions.invokeWithText
 import org.wikipedia.lesson24.utils.ComposeNamedScreen
 
 object AddLanguageScreen : ComposeNamedScreen<AddLanguageScreen>() {
@@ -16,5 +17,9 @@ object AddLanguageScreen : ComposeNamedScreen<AddLanguageScreen>() {
                 itemType(::LanguageItem)
             }
         )
+    }
+
+    fun itemWithText(text: String, fnc: LanguageItem.() -> Unit) {
+        items.invokeWithText<LanguageItem>(text, fnc)
     }
 }

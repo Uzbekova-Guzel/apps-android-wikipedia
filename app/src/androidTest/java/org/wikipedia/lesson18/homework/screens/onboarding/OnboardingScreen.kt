@@ -1,6 +1,7 @@
 package org.wikipedia.lesson18.homework.screens.onboarding
 
 import io.github.kakaocup.kakao.pager2.KViewPager2
+import io.github.kakaocup.kakao.recycler.KRecyclerView
 import io.github.kakaocup.kakao.text.KButton
 import org.wikipedia.R
 import org.wikipedia.lesson18.homework.extentions.invokeByIndex
@@ -37,6 +38,17 @@ object OnboardingScreen : NamedScreen<OnboardingScreen>() {
                 itemType(::PagerItem)
             }
         ).name(withParent("Слайдер"))
+    }
+
+    val languages by lazy {
+        KRecyclerView(
+            builder = {
+                withId(R.id.languagesList)
+            },
+            itemTypeBuilder = {
+                itemType(::LanguageItem)
+            }
+        ).name(withParent("Блоки языков"))
     }
 
     fun page(index: Int, fnc: PagerItem.() -> Unit) {

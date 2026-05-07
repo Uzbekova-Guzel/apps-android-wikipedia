@@ -3,14 +3,13 @@ package org.wikipedia.lesson18.homework.screens.onboarding
 import androidx.appcompat.widget.AppCompatImageButton
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
+import io.github.kakaocup.kakao.image.KImageView
 import io.github.kakaocup.kakao.recycler.KRecyclerView
 import io.github.kakaocup.kakao.text.KButton
 import io.github.kakaocup.kakao.text.KTextView
 import org.wikipedia.R
 import org.wikipedia.lesson18.homework.extentions.invokeAtIndex
 import org.wikipedia.lesson18.homework.extentions.name
-import org.wikipedia.lesson18.homework.extentions.withParent
-import org.wikipedia.lesson18.homework.screens.customize.CustomizeRecycler
 import org.wikipedia.lesson18.homework.utils.NamedScreen
 import org.wikipedia.settings.languages.WikipediaLanguagesItemView
 
@@ -49,15 +48,15 @@ object WikipediaLanguagesScreen : NamedScreen<WikipediaLanguagesScreen>() {
     }
 
     val plusImage by lazy {
-        KTextView() {
+        KImageView() {
             isInstanceOf(AppCompatImageView::class.java)
         }.name(withParent("Картинка Plus"))
     }
 
-    val addLanguageText by lazy {
-        KTextView() {
-            withId(R.id.wiki_language_title)
-        }.name(withParent("Текст Add language"))
+    val addLanguageButton by lazy {
+        KButton() {
+            withText("Add language")
+        }.name(withParent("Кнопка Add language"))
     }
 
     fun item(index: Int, fnc: WikiLanguageItem.() -> Unit) {
