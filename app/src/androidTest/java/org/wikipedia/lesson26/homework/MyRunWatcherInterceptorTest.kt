@@ -1,8 +1,8 @@
-package org.wikipedia.lesson26
+package org.wikipedia.lesson26.homework
 
 import androidx.test.ext.junit.rules.ActivityScenarioRule
-import com.kaspersky.components.alluresupport.interceptors.step.ScreenshotStepInterceptor
 import com.kaspersky.components.alluresupport.withForcedAllureSupport
+import com.kaspersky.kaspresso.interceptors.watcher.testcase.impl.logging.TestRunLoggerWatcherInterceptor
 import com.kaspersky.kaspresso.kaspresso.Kaspresso
 import com.kaspersky.kaspresso.testcases.api.testcase.TestCase
 import org.junit.Rule
@@ -11,12 +11,12 @@ import org.wikipedia.lesson08.OnboardingScreen
 import org.wikipedia.lesson08.homework.ExploreScreen
 import org.wikipedia.main.MainActivity
 
-class SampleTest : TestCase(
+class MyRunWatcherInterceptorTest : TestCase(
     kaspressoBuilder = Kaspresso.Builder.withForcedAllureSupport().apply {
-        stepWatcherInterceptors.removeIf {
-            it is ScreenshotStepInterceptor
+        testRunWatcherInterceptors.removeIf {
+            it is TestRunLoggerWatcherInterceptor
         }
-        stepWatcherInterceptors.add(MyScreenshotStepOnlyFailInterceptor(screenshots))
+        testRunWatcherInterceptors.add(MyTestRunWatcherInterceptor(testLogger))
     }
 ) {
 
@@ -25,15 +25,13 @@ class SampleTest : TestCase(
 
     @Test
     fun simpleTest() {
-        run {
-            step("test") {
-                OnboardingScreen.continueButton {
-                    isDisplayed()
-                    click()
-                }
-            }
-            step("fail") {
-                ExploreScreen.items.isDisplayed()
+        before {
+            OnboardingScreen.continueButton.isDisplayed()
+        }.after {
+            ExploreScreen.logo.isDisplayed()
+        }.run {
+            step("Click skip button") {
+                OnboardingScreen.skipButton.click()
             }
         }
     }
