@@ -6,7 +6,7 @@ import com.kaspersky.components.composesupport.config.ComposeConfig
 import com.kaspersky.kaspresso.kaspresso.Kaspresso
 import com.kaspersky.kaspresso.testcases.api.testcase.TestCase
 import org.junit.Rule
-import org.wikipedia.lesson27.ExampleRule
+import org.wikipedia.lesson27.homework.MyTestRule
 import org.wikipedia.main.MainActivity
 
 abstract class BaseTest : TestCase(
@@ -14,8 +14,9 @@ abstract class BaseTest : TestCase(
         ComposeConfig.Builder.default(this) {}
     }
 ) {
+
     @get:Rule
-    val baseRule = ExampleRule()
+    val baseRule = MyTestRule()
 
     @get:Rule(order = 1)
     val testRule = ActivityScenarioRule(MainActivity::class.java)
