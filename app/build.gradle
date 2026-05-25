@@ -19,7 +19,7 @@ static def computeVersionName(versionCode, label) {
     return "${versionCode}-${label}-${(new Date()).format('yyyy-MM-dd')}"
 }
 
-def autotestPropertiesFile = rootProject.file("autotest.properties")
+def autotestPropertiesFile = rootProject.file("data.properties")
 def autotestProperties = new Properties()
 if (autotestPropertiesFile.exists()) {
     autotestPropertiesFile.withInputStream { stream ->
